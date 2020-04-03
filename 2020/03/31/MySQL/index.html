@@ -49,7 +49,7 @@
     
     <title>
         
-            MySQL | Dr.郑幸福
+            MySQL基础 | Dr.郑幸福
         
     </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -195,7 +195,7 @@
     
     
       <div class="post-header"> 
-  <a class="post-header-title" href="/2020/03/31/MySQL/">MySQL</a>
+  <a class="post-header-title" href="/2020/03/31/MySQL/">MySQL基础</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
@@ -203,11 +203,11 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2020-04-02
+      更新于:&nbsp;2020-04-03
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;
+      分类于:&nbsp;<a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
     </span>
     
       <span>
@@ -229,10 +229,10 @@
       <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
       <ul class="mdui-menu" id="share_menu">
         <li class="mdui-menu-item">
-          <a href="http://service.weibo.com/share/share.php?appkey=&title=MySQL&url=https://zhengxingfu.github.io/2020/03/31/MySQL/&pic=https://ZhengXingfu.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=MySQL基础&url=https://zhengxingfu.github.io/2020/03/31/MySQL/&pic=https://ZhengXingfu.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://twitter.com/intent/tweet?text=MySQL&url=https://zhengxingfu.github.io/2020/03/31/MySQL/&via=ZhengXingfu" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=MySQL基础&url=https://zhengxingfu.github.io/2020/03/31/MySQL/&via=ZhengXingfu" target="_blank" class="mdui-ripple">分享到 Twitter</a>
         </li>
         <li class="mdui-menu-item">
           <a href="https://www.facebook.com/sharer/sharer.php?u=https://zhengxingfu.github.io/2020/03/31/MySQL/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
@@ -241,13 +241,13 @@
           <a href="https://plus.google.com/share?url=https://zhengxingfu.github.io/2020/03/31/MySQL/" target="_blank" class="mdui-ripple">分享到 Google+</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://zhengxingfu.github.io/2020/03/31/MySQL/&title=MySQL" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://zhengxingfu.github.io/2020/03/31/MySQL/&title=MySQL基础" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Dr.郑幸福&title=MySQL&summary=&pics=https://ZhengXingfu.github.io/null&url=https://zhengxingfu.github.io/2020/03/31/MySQL/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Dr.郑幸福&title=MySQL基础&summary=&pics=https://ZhengXingfu.github.io/null&url=https://zhengxingfu.github.io/2020/03/31/MySQL/" target="_blank" class="mdui-ripple">分享到 QQ</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://telegram.me/share/url?url=https://zhengxingfu.github.io/2020/03/31/MySQL/&text=MySQL" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+          <a href="https://telegram.me/share/url?url=https://zhengxingfu.github.io/2020/03/31/MySQL/&text=MySQL基础" target="_blank" class="mdui-ripple">分享到 Telegram</a>
         </li>
       </ul>
     
@@ -267,7 +267,286 @@
 
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <h4 id="数据库登录"><a href="#数据库登录" class="headerlink" title="数据库登录"></a>数据库登录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;mysql -u root -p</span><br></pre></td></tr></table></figure>
+<h2 id="数据库基础管理"><a href="#数据库基础管理" class="headerlink" title="数据库基础管理"></a>数据库基础管理</h2><h4 id="显示数据库"><a href="#显示数据库" class="headerlink" title="显示数据库"></a>显示数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| code               |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| school             |</span><br><span class="line">| test               |</span><br><span class="line">+--------------------+</span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>这些数据库其中有一部分是MySQL安装时系统创建的，还有的时自己创建的；<br>各自的功能如下：</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>数据库名称</strong></th>
+<th align="left"><strong>功能描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">information_schema</td>
+<td align="left">主要存储系统中的一些数据库对象信息，比如用户表信息、列信息、权限信息、字符集信息、分区信息等。</td>
+</tr>
+<tr>
+<td align="left">mysql</td>
+<td align="left">存储了系统的用户权限信息。</td>
+</tr>
+<tr>
+<td align="left">performance_schema</td>
+<td align="left">主要用于收集数据库服务器性能参数(5.5版本)</td>
+</tr>
+<tr>
+<td align="left">sys</td>
+<td align="left">通过这个库可以快速的了解系统的元数据信息(5.7版本新特性)</td>
+</tr>
+<tr>
+<td align="left">test / school</td>
+<td align="left">自己创建的数据库，接下来会讲解怎么创建数据库。</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><p>创建一个自己的业务数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create database test1;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>ok 现在我们已经创建一个名为test1的数据库了，接下来我们要使用它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use test1;</span><br><span class="line">Database changed</span><br></pre></td></tr></table></figure>
+<p>同样我们也可以删除数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; drop database test1;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+<h4 id="操作表"><a href="#操作表" class="headerlink" title="操作表"></a>操作表</h4><p>上面我们已经删除了test，现在我们创建它，并且切换到test1数据库。<br>查看数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">Empty set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>还没有创建表，所以显示的时“Empty”（空的）。让我来们来创建一个数据表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table emp(ename varchar(10),hiredate date, sal decimal(10, 2), deptno int(2));</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure>
+<p>创建完表以后，使用 <code>desc</code> 来查看一下表结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; desc emp;</span><br><span class="line">+----------+---------------+------+-----+---------+-------+</span><br><span class="line">| Field    | Type          | Null | Key | Default | Extra |</span><br><span class="line">+----------+---------------+------+-----+---------+-------+</span><br><span class="line">| ename    | varchar(10)   | YES  |     | NULL    |       |</span><br><span class="line">| hiredate | date          | YES  |     | NULL    |       |</span><br><span class="line">| sal      | decimal(10,2) | YES  |     | NULL    |       |</span><br><span class="line">| deptno   | int(2)        | YES  |     | NULL    |       |</span><br><span class="line">+----------+---------------+------+-----+---------+-------+</span><br><span class="line">4 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+<p>同样我们可以删除这张表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; drop table emp;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure>
+<p>也可以修改表的结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; alter table emp modify ename varchar(20);</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br></pre></td></tr></table></figure>
+<p>上面用<code>alter table</code>将<code>emp</code>表中的<code>ename</code>的字段长度从10字符改成了20字符。</p>
+<p>上面对数据库表的字段类型做了修改，除此之外还可以对数据库表字段做一些如下操作：</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>操作命令</strong></th>
+<th align="left"><strong>操作实例</strong></th>
+<th align="left"><strong>操作说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">增加表字段<code>add colimn</code></td>
+<td align="left">alter table emp add colume age int (3);</td>
+<td align="left">在<code>emp</code>表中增加了一个字段<code>age</code></td>
+</tr>
+<tr>
+<td align="left">删除表字段<code>drop column</code></td>
+<td align="left">alter table emp drop colunm age;</td>
+<td align="left">删除<code>emp</code>表中的<code>age</code>字段</td>
+</tr>
+<tr>
+<td align="left">修改字段名<code>change</code></td>
+<td align="left">alter table emp change age  age1 int(4);</td>
+<td align="left">修改字段<code>age</code>为<code>age1</code>,字段长度修改为int(4)</td>
+</tr>
+<tr>
+<td align="left">修改字段排列顺序<code>modify</code></td>
+<td align="left">alter table emp modify age int(3) first;</td>
+<td align="left">修改<code>age</code>字段，将它放在最前面</td>
+</tr>
+</tbody></table>
+<hr>
+<p>除了对字段可以修改操作外， 还可以修改表的名字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; alter table emp rename emptest;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="DML语句"><a href="#DML语句" class="headerlink" title="DML语句"></a>DML语句</h3><p>DML操作是指针对数据库表中的记录数据的操作，主要包括增删改查四种操作。</p>
+<h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; insert into emp(ename, hiredate, sal, deptno) values(&#39;xiaoming&#39;,&#39;2020-04-03&#39;, &#39;4500&#39;,2);</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br></pre></td></tr></table></figure>
+<p>这样就给数据库表中插入了一行数据，查看插入的数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from emp;</span><br><span class="line">+----------+------------+---------+--------+</span><br><span class="line">| ename    | hiredate   | sal     | deptno |</span><br><span class="line">+----------+------------+---------+--------+</span><br><span class="line">| xiaoming | 2020-04-03 | 4500.00 |      2 |</span><br><span class="line">+----------+------------+---------+--------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<h4 id="更改"><a href="#更改" class="headerlink" title="更改"></a>更改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; update emp set sal&#x3D;5000 where ename&#x3D;&#39;xiaoming&#39;;</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br><span class="line">Rows matched: 1  Changed: 1  Warnings: 0</span><br></pre></td></tr></table></figure>
+<p>上面将<code>emp</code>表中的对应<code>ename</code>是xiaoming的数据行的<code>sal</code>字段内容更改为了5000.</p>
+<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><p>实际上 <code>select * from emp</code> 语句就是一条查询语句， 其中<code>*</code>是通配符， 表示所有字段， 当然我们也可以选择性的查询部分字段内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select ename, sal from emp;</span><br><span class="line">+----------+---------+</span><br><span class="line">| ename    | sal     |</span><br><span class="line">+----------+---------+</span><br><span class="line">| xiaoming | 5000.00 |</span><br><span class="line">+----------+---------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>事实上查询是一个很复杂的操作，并不是所有查询是上面看到的这样简单，还包括多张表关联查询等操作。</p>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; delete from emp where ename&#x3D;&#39;xiaoming&#39;;</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br></pre></td></tr></table></figure>
+<p>删除对应条件的行数据是非常方便的，上面已经对数据库最基本的操作进行了认识，接下来我们需要去面对比较复杂的业务场景。</p>
+<h2 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h2><p>在上面我们已经定义过表的字段，使用了<code>varchar</code>、<code>date</code>、<code>int</code>等数据类型，下面表格展示了MySQL中涵盖的数据类型：</p>
+<h4 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h4><hr>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>数值类型</strong></th>
+<th align="center"><strong>字节数</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">TINYINT</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="left">SMALLINT</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="left">MEDIUMINT</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="left">INT、INTEGER</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="left">BIGINT</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="left">FLOAT</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="left">DOUBLE</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="left">DEC(M, D)</td>
+<td align="center">M+2</td>
+</tr>
+<tr>
+<td align="left">DECIMAL(M, D)</td>
+<td align="center">M+1</td>
+</tr>
+</tbody></table>
+<hr>
+<p>对于整型类型， 按照取值范围分为<code>tinyint</code>、<code>smallint</code>、<code>int</code>、<code>bigint</code>这5个类型， 另外还支持<code>int</code>类型后指定显示长度， 列如<code>int(5)</code>，对于整型都有一个可选属性<code>UNSIGEND</code>(无符号)。</p>
+<p>对于小数的表示，<code>MySQL</code>中分为浮点数和定点数两种表示，浮点数有<code>float</code>和<code>double</code>，定点数只有<code>decimal</code>(使用字符串形式表示，比浮点数更精确，适合货币等)。</p>
+<p>浮点数和定点数后面都可以加<code>（M,D）</code>的方式来表示一共显示M位数字，其中D位位于小数点后面，M和D分别称为精度和标度。<code>decimal</code>在不指定精度时默认整数位时10，默认小数位为0.</p>
+<h4 id="日期时间类型"><a href="#日期时间类型" class="headerlink" title="日期时间类型"></a>日期时间类型</h4><hr>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>日期事件类型</strong></th>
+<th align="left"><strong>字节</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DATA</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">DATATIME</td>
+<td align="left">8</td>
+</tr>
+<tr>
+<td align="left">TIMESTAMP</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">TIME</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">YEAR</td>
+<td align="left">1</td>
+</tr>
+</tbody></table>
+<hr>
+<p>如果要经常插入或者更新日期通常使用<code>TIMESTAMP</code>表示，如果只表示年份，可以用<code>YEAR</code>.</p>
+<h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><hr>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>字符串类型</strong></th>
+<th align="left"><strong>字节</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CHAR(M)</td>
+<td align="left">M</td>
+</tr>
+<tr>
+<td align="left">VARCHAR(M)</td>
+<td align="left">M</td>
+</tr>
+<tr>
+<td align="left">TINYBLOB</td>
+<td align="left">允许长度0~255字节</td>
+</tr>
+<tr>
+<td align="left">BLOB</td>
+<td align="left">允许长度0~65535字节</td>
+</tr>
+<tr>
+<td align="left">MEDIUMBLOB</td>
+<td align="left">允许长度0~167772150字节</td>
+</tr>
+<tr>
+<td align="left">LONGBLOB</td>
+<td align="left">允许长度0~4294967295字节</td>
+</tr>
+<tr>
+<td align="left">TINYTEXT</td>
+<td align="left">允许长度0~255字节</td>
+</tr>
+<tr>
+<td align="left">TEXT</td>
+<td align="left">允许长度0~65535字节</td>
+</tr>
+<tr>
+<td align="left">MEDIUMTEXT</td>
+<td align="left">允许长度0~167772150字节</td>
+</tr>
+<tr>
+<td align="left">LONGTEXT</td>
+<td align="left">允许长度0~4294967295字节</td>
+</tr>
+<tr>
+<td align="left">VARBINARY(M)</td>
+<td align="left">允许长度0~M字节</td>
+</tr>
+<tr>
+<td align="left">BINARY(M)</td>
+<td align="left">允许长度0~M字节</td>
+</tr>
+</tbody></table>
+<hr>
+<p><code>blob</code>存储的是二进制数据，而<code>text</code>存储的是非二进制数据，需要指定字符集，<code>text</code>只能存储纯文本字符串。</p>
+<p><code>char</code>和<code>varchar</code>类型很类似，都用来保存<code>MySQL</code>中较短的字符串，区别就是<code>varchar</code>保留空格，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table vc (v varchar(4), c char(4));</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; insert into vc values (&#39;ab  &#39;, &#39;ab  &#39;);</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select concat(v, &#39;+&#39;), concat(c, &#39;+&#39;) from vc;</span><br><span class="line">+----------------+----------------+</span><br><span class="line">| concat(v, &#39;+&#39;) | concat(c, &#39;+&#39;) |</span><br><span class="line">+----------------+----------------+</span><br><span class="line">| ab  +          | ab+            |</span><br><span class="line">+----------------+----------------+</span><br></pre></td></tr></table></figure>
+<p><code>binary</code>和<code>varbinary</code>类型也有些类似的不同：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table t (c binary(3));</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; insert into t set c&#x3D;&#39;a&#39;;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select *, hex(c), c&#x3D;&#39;a&#39;, c&#x3D;&#39;a\0&#39;, c&#x3D;&#39;a\0\0&#39; from t;</span><br><span class="line">+------+--------+-------+---------+-----------+</span><br><span class="line">| c    | hex(c) | c&#x3D;&#39;a&#39; | c&#x3D;&#39;a\0&#39; | c&#x3D;&#39;a\0\0&#39; |</span><br><span class="line">+------+--------+-------+---------+-----------+</span><br><span class="line">| a    | 610000 |     0 |       0 |         1 |</span><br><span class="line">+------+--------+-------+---------+-----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p><code>hex()</code>函数可以将一个字符串转化成十六进制格式，可以看到上面使用<code>binary</code>时在值的最后填充了<code>0x00</code>.</p>
+<h4 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h4><p><code>enum</code>类型是一种数据库中的枚举类型，对于1<del>255个成员使用1个字节存储，对于255</del>65535个成员使用2个字节存储，最多允许有65535个成员。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table t (gender enum(&#39;M&#39;, &#39;F&#39;));</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; insert into t values (&#39;M&#39;), (&#39;1&#39;), (&#39;f&#39;), (NULL);</span><br><span class="line">Query OK, 4 rows affected (0.00 sec)</span><br><span class="line">Records: 4  Duplicates: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from t;</span><br><span class="line">+--------+</span><br><span class="line">| gender |</span><br><span class="line">+--------+</span><br><span class="line">| M      |</span><br><span class="line">| M      |</span><br><span class="line">| F      |</span><br><span class="line">| NULL   |</span><br><span class="line">+--------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h4 id="SET类型"><a href="#SET类型" class="headerlink" title="SET类型"></a>SET类型</h4><p><code>set</code>类型和<code>enum</code>类型非常类似，也是一个字符串对象，里面可以包含0~64个成员，根据成员不同存储上也不同。</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>成员数</strong></th>
+<th align="left"><strong>字节数</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1~8</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">9~16</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">17~24</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">25~32</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">33~64</td>
+<td align="left">8</td>
+</tr>
+</tbody></table>
+<hr>
+<p>除了存储之外，<code>set</code>和<code>enum</code>最主要区别是<code>set</code>类型可以一次选取多个成员(可以理解为集合），而<code>enum</code>只能选一个。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table t (col set (&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;));</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; insert into t values (&#39;a,b&#39;), (&#39;a,d,a&#39;), (&#39;a,c&#39;), (&#39;a&#39;);</span><br><span class="line">Query OK, 4 rows affected (0.00 sec)</span><br><span class="line">Records: 4  Duplicates: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from t;</span><br><span class="line">+------+</span><br><span class="line">| col  |</span><br><span class="line">+------+</span><br><span class="line">| a,b  |</span><br><span class="line">| a,d  |</span><br><span class="line">| a,c  |</span><br><span class="line">| a    |</span><br><span class="line">+------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+
+
   </div>
   <!--文末结束语-->
   
@@ -296,7 +575,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/03/31/MySQL/" id="toc-header" class="mdui-ripple">文章目录</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库登录"><span class="toc-number">1.</span> <span class="toc-text">数据库登录</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库基础管理"><span class="toc-number"></span> <span class="toc-text">数据库基础管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#显示数据库"><span class="toc-number">1.</span> <span class="toc-text">显示数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建数据库"><span class="toc-number">2.</span> <span class="toc-text">创建数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#操作表"><span class="toc-number">3.</span> <span class="toc-text">操作表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DML语句"><span class="toc-number"></span> <span class="toc-text">DML语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#插入"><span class="toc-number">1.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更改"><span class="toc-number">2.</span> <span class="toc-text">更改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查询"><span class="toc-number">3.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除"><span class="toc-number">4.</span> <span class="toc-text">删除</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL数据类型"><span class="toc-number"></span> <span class="toc-text">MySQL数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数值类型"><span class="toc-number">1.</span> <span class="toc-text">数值类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日期时间类型"><span class="toc-number">2.</span> <span class="toc-text">日期时间类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串类型"><span class="toc-number">3.</span> <span class="toc-text">字符串类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#枚举类型"><span class="toc-number">4.</span> <span class="toc-text">枚举类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SET类型"><span class="toc-number">5.</span> <span class="toc-text">SET类型</span></a></li></ol>
       </li>
     </ul>
   </div>
