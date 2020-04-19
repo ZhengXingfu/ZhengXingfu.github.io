@@ -277,6 +277,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.action;</span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 继承类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zicai</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="comment">//return super.execute();</span></span><br><span class="line">		<span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><code>class ActionSupport implements Action</code></p>
+<hr>
 <h6 id="访问Action的方法"><a href="#访问Action的方法" class="headerlink" title="访问Action的方法"></a>访问Action的方法</h6><p>1.三种方式实现：</p>
 <p>第一种：使用action标签的method属性， 在这个属性里面写执行的action的方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.action;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建action, 创建多个方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zicai </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span></span>&#123;</span><br><span class="line">	<span class="comment">//添加</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"add……"</span>);</span><br><span class="line">		<span class="keyword">return</span> NONE;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//修改</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"update……"</span>);</span><br><span class="line">		<span class="keyword">return</span> NONE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -284,6 +285,10 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置action 的方法访问 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"bookdemo"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--  有method的属性：写要执行的action方法--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"addAction"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.action.BookAction"</span> <span class="attr">method</span>=<span class="string">"add"</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 执行update方法 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"updateAction"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.action.BookAction"</span> <span class="attr">method</span>=<span class="string">"update"</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>第二种：使用通配符的方式实现</p>
+<p>1.在action标签里面name属性，name属性值里面写 * ：星号</p>
+<p>（1）”*”理解。表示匹配任意内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--  name属性值里面写符号 *</span></span><br><span class="line"><span class="comment">		(1) 执行action里面的add方法， 访问book_add</span></span><br><span class="line"><span class="comment">		(2)执行action里面的update方法， 访问book_update</span></span><br><span class="line"><span class="comment">		上面的两个路径使用book_* 可以匹配到</span></span><br><span class="line"><span class="comment">		method属性写*值</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"book_*"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.action.BookAction"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>第三种：动态访问实现</p>
 <p>2.演示错误</p>
 <p>（1）如果action方法有返回值，在配置文件中没有配置，出现错误。</p>
@@ -292,6 +297,64 @@
 <p>-把方法写出viod</p>
 <p>-返回值 NONE</p>
 <p><code>return &#39;none&#39;;or return NONE</code></p>
+<p>全局结果页面配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"demo1"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">global-results</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"ok"</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">global-results</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"book"</span> <span class="attr">class</span>=<span class="string">"cn.iscast.action.BookAction"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>局部结果页面配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"book"</span> <span class="attr">class</span>=<span class="string">"cn.iscast.action.BookAction"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>全局和局部同时存在时，局部配置为准</p>
+<hr>
+<h6 id="Result标签的type属性"><a href="#Result标签的type属性" class="headerlink" title="Result标签的type属性"></a>Result标签的type属性</h6><p>1.result标签里面除了name属性之外，还有个type属性</p>
+<p>（1）type属性：如何到路径里面去（转发还是重定向）</p>
+<p>2.type属性值：</p>
+<p>（1）默认值：做转发操作， 值事dispatcher</p>
+<p>（2）做重定向操作， 值是redirect </p>
+<p>上面的两个dispatcher、redirect， 这两个值一般针对页面中配置， 配置到其他的action里面</p>
+<p>-chain:转发到action，</p>
+<p>-redirectAction：重定向到 action</p>
+<hr>
+<h6 id="Action获取表单提交数据"><a href="#Action获取表单提交数据" class="headerlink" title="Action获取表单提交数据"></a>Action获取表单提交数据</h6><p>1.在web阶段， 提交表单到servlet里面， 在servlet里面使用request对象里面分放法获取，<code>getParameter</code>, <code>getParameterMap</code></p>
+<p>2.提交表单到action里面，但是action，没有request对象， 不能直接用request对象</p>
+<p>3.action获取表单提交数据的主要三种方式</p>
+<p>（1）使用ActionContext类</p>
+<p>（2）使用ServletActionContext类</p>
+<p>（3）使用接口注入方式</p>
+<p>使用ActionContext类获取</p>
+<p>（1）因为方法不是静态的方法， 需要创建ActionContext类的对象</p>
+<p>（2）这个ActionContext类对象不是new出来的。</p>
+<p>具体演示：</p>
+<p>​    -创建表单，提交表单到action里面</p>
+<p>​    -在action使用ActionContext获取数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.form;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionContext;</span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FormDemoAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 第一种方式，使用ACtionContext类获取</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="comment">//1.获取ActionContext对象</span></span><br><span class="line">	ActionContext context =	ActionContext.getContext();</span><br><span class="line">	<span class="comment">//2.调用方法得到表单数据</span></span><br><span class="line">	<span class="comment">//key是表单输入项name属性值，value是输入值</span></span><br><span class="line">	Map&lt;String, Object&gt; map = context.getParameters();</span><br><span class="line">	Set&lt;String&gt; keys = map.keySet();</span><br><span class="line">	<span class="keyword">for</span>(String key:keys) &#123;</span><br><span class="line">		<span class="comment">//根据key的到value</span></span><br><span class="line">		<span class="comment">//数组形式：因为输入项里面可能有复选框情况</span></span><br><span class="line">		Object[] obj= (Object[])map.get(key);</span><br><span class="line">		System.out.println(Arrays.toString(obj));</span><br><span class="line">	&#125;	</span><br><span class="line">		<span class="keyword">return</span> NONE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>使用ServletActionContext类获取</p>
+<table>
+<thead>
+<tr>
+<th>静态方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static HttpServletRequest getRequest():</td>
+<td>获取Web应用的HttpServletRequest对象</td>
+</tr>
+<tr>
+<td>static HttpServletResponse getResponse():</td>
+<td>获取Web应用的HttpServletResponse对象</td>
+</tr>
+<tr>
+<td>static ServletContext getServletContext():</td>
+<td>获取Web应用的ServletContext对象</td>
+</tr>
+<tr>
+<td>static ServletContext getPageContext():</td>
+<td>获取Web应用的PageContext对象</td>
+</tr>
+</tbody></table>
+<p>调用静态类方法</p>
 
   </div>
   <!--文末结束语-->
@@ -321,7 +384,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/04/19/struts2/" id="toc-header" class="mdui-ripple">文章目录</a>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sturts2"><span class="toc-number">1.</span> <span class="toc-text">sturts2</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Action的编写方式："><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">Action的编写方式：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#访问Action的方法"><span class="toc-number">1.0.0.0.0.2.</span> <span class="toc-text">访问Action的方法</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sturts2"><span class="toc-number">1.</span> <span class="toc-text">sturts2</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Action的编写方式："><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">Action的编写方式：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#访问Action的方法"><span class="toc-number">1.0.0.0.0.2.</span> <span class="toc-text">访问Action的方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Result标签的type属性"><span class="toc-number">1.0.0.0.0.3.</span> <span class="toc-text">Result标签的type属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Action获取表单提交数据"><span class="toc-number">1.0.0.0.0.4.</span> <span class="toc-text">Action获取表单提交数据</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
       </li>
     </ul>
   </div>
