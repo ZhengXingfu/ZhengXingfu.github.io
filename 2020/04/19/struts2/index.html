@@ -207,7 +207,7 @@
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;
+      分类于:&nbsp;<a class="category-link" href="/categories/java/">java</a>
     </span>
     
       <span>
@@ -257,9 +257,42 @@
   
   
   
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E6%A1%86%E6%9E%B6/ >框架</a>
+      </i>
+    
+  </div>
+
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <h1 id="sturts2"><a href="#sturts2" class="headerlink" title="sturts2"></a>sturts2</h1><h6 id="Action的编写方式："><a href="#Action的编写方式：" class="headerlink" title="Action的编写方式："></a>Action的编写方式：</h6><p>1.action编写有三种方式：</p>
+<p>​    第一种：创建普通类，这个类不继承任何类， 不实现任何接口</p>
+<p><code>public class HellAction{……}</code></p>
+<p>​    第二种：创建类， 实现接口Action</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.action;</span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.Action;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现接口</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zicai</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAction</span> <span class="keyword">implements</span> <span class="title">Action</span></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="comment">//return null;</span></span><br><span class="line">        <span class="keyword">return</span> SUCCESS;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    第三种：创建类， 继承类ActionSupport(一般使用)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.action;</span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 继承类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zicai</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="comment">//return super.execute();</span></span><br><span class="line">		<span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>class ActionSupport implements Action</code></p>
+<h6 id="访问Action的方法"><a href="#访问Action的方法" class="headerlink" title="访问Action的方法"></a>访问Action的方法</h6><p>1.三种方式实现：</p>
+<p>第一种：使用action标签的method属性， 在这个属性里面写执行的action的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.action;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建action, 创建多个方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zicai </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span></span>&#123;</span><br><span class="line">	<span class="comment">//添加</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"add……"</span>);</span><br><span class="line">		<span class="keyword">return</span> NONE;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//修改</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"update……"</span>);</span><br><span class="line">		<span class="keyword">return</span> NONE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置action 的方法访问 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"bookdemo"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--  有method的属性：写要执行的action方法--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"addAction"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.action.BookAction"</span> <span class="attr">method</span>=<span class="string">"add"</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 执行update方法 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"updateAction"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.action.BookAction"</span> <span class="attr">method</span>=<span class="string">"update"</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第二种：使用通配符的方式实现</p>
+<p>第三种：动态访问实现</p>
+<p>2.演示错误</p>
+<p>（1）如果action方法有返回值，在配置文件中没有配置，出现错误。</p>
+<p>（2）在action里面的方法有返回值，如果有返回值的时候类型必须时String类型。</p>
+<p>（3） action里面的方法可以没有返回值，没有返回值的时候，在result标签不需要配置</p>
+<p>-把方法写出viod</p>
+<p>-返回值 NONE</p>
+<p><code>return &#39;none&#39;;or return NONE</code></p>
+
   </div>
   <!--文末结束语-->
   
@@ -288,7 +321,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/04/19/struts2/" id="toc-header" class="mdui-ripple">文章目录</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sturts2"><span class="toc-number">1.</span> <span class="toc-text">sturts2</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Action的编写方式："><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">Action的编写方式：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#访问Action的方法"><span class="toc-number">1.0.0.0.0.2.</span> <span class="toc-text">访问Action的方法</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
       </li>
     </ul>
   </div>
