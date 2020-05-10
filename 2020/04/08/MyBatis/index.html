@@ -203,7 +203,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2020-04-09
+      更新于:&nbsp;2020-04-29
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -284,6 +284,9 @@
 
 <h4 id="环境搭建的注意事项："><a href="#环境搭建的注意事项：" class="headerlink" title="环境搭建的注意事项："></a>环境搭建的注意事项：</h4><p>&emsp;&emsp;第一个：创建IIserdao.cml和IUserdao.java时名称时为了和我们之前的只是保持一致。<br>&emsp;&emsp;&emsp;&emsp;在Mybatis中它把持久层的操作接口名称和映射表文件也叫做：Mapper<br>&emsp;&emsp;&emsp;&emsp;所以：IUserdao和IUserMapper是一样的<br>&emsp;&emsp;第二个：在idea中创建目录的时候， 它和包的创建是不一样的，<br>&emsp;&emsp;&emsp;&emsp;包在创建时：com.mybatis.dao它时三级机构<br>&emsp;&emsp;&emsp;&emsp;目录在创建时：com.mybatis.dao它时一级结构<br>&emsp;&emsp;第三个：mybatis的映射配置文件位置必须和dao接口的包结构相同<br>&emsp;&emsp;第四个：映射配置文件的mapper标签namespace属性的取值必须是dao接口的全限定类名<br>&emsp;&emsp;第五个：映射配置文件的操作配置，id配置必须是dao接口的方法名</p>
 <p>&emsp;&emsp;当我们遵从了第三、四、五点之后，我们子啊开发中就无须再写dao的实现类。</p>
+<hr>
+<p>mybatis 基于注解的案例：</p>
+<p>​    把IUserdao.xml移除， 在dao接口上使用<code>@Select</code>注解，并且指定SQL语句，同时需要在SqlMapper配置时，使用class属性只顶你dao接口全限定类</p>
 
   </div>
   <!--文末结束语-->
