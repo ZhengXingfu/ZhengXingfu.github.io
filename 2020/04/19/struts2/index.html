@@ -203,7 +203,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2020-05-10
+      更新于:&nbsp;2020-05-14
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -308,7 +308,7 @@
 <h6 id="Result标签的type属性"><a href="#Result标签的type属性" class="headerlink" title="Result标签的type属性"></a>Result标签的type属性</h6><p>1.result标签里面除了name属性之外，还有个type属性</p>
 <p>（1）type属性：如何到路径里面去（转发还是重定向）</p>
 <p>2.type属性值：</p>
-<p>（1）默认值：做转发操作， 值事dispatcher</p>
+<p>（1）默认值：做转发操作， 值是dispatcher</p>
 <p>（2）做重定向操作， 值是redirect </p>
 <p>上面的两个dispatcher、redirect， 这两个值一般针对页面中配置， 配置到其他的action里面</p>
 <p>-chain:转发到action，</p>
@@ -364,8 +364,7 @@
 <h2 id="Struts2封装获取表单数据的方式"><a href="#Struts2封装获取表单数据的方式" class="headerlink" title="Struts2封装获取表单数据的方式"></a>Struts2封装获取表单数据的方式</h2><p>原始方式获取表单封装到实体类对象</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.获取表单数据</span></span><br><span class="line">		HttpServletRequest request = ServletActionContext.getRequest();</span><br><span class="line">		String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">		String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">		String address = request.getParameter(<span class="string">"address"</span>);</span><br><span class="line"><span class="comment">//2.封装到实体类对象里面去</span></span><br><span class="line">		User user = <span class="keyword">new</span> User();</span><br><span class="line">		user.setUsername(username);</span><br><span class="line">		user.setPassword(password);</span><br><span class="line">		user.setAddress(address);</span><br><span class="line">		System.out.println(user);</span><br></pre></td></tr></table></figure>
 
-<p>属性封装</p>
-<p>1.直接把表单提交属性封装到action的属性里面中</p>
+<h6 id="属性封装"><a href="#属性封装" class="headerlink" title="属性封装"></a>属性封装</h6><p>1.直接把表单提交属性封装到action的属性里面中</p>
 <p>2.实现步骤：</p>
 <p>（1）在action成员变量位置定义变量</p>
 <p>​    -变量名称和表单输入项的name属性值一样</p>
@@ -373,8 +372,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用属性封装获取表单属性</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zicai</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataDemo1Action</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;</span><br><span class="line">	<span class="comment">//1.定义变量(变量的名称和表单输入项的name值一样)</span></span><br><span class="line">	<span class="keyword">private</span> String username;</span><br><span class="line">	<span class="keyword">private</span> String password;</span><br><span class="line">	<span class="keyword">private</span> String address;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//2.生成变量的set和get方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> username;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.username = username;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> password;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.password = password;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> address;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(String address)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.address = address;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		System.out.println(username+<span class="string">":"</span>+password+<span class="string">":"</span>+address);</span><br><span class="line">		<span class="keyword">return</span> NONE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>(3)使用属性封装获取表单数据到属性里面，不能把数据直接封装到实体类对象里面</p>
-<p>模型驱动方式</p>
-<p>1.使用模型驱动方式，可以直接把表单数据封装到实体类对象里面</p>
+<h6 id="模型驱动方式"><a href="#模型驱动方式" class="headerlink" title="模型驱动方式"></a>模型驱动方式</h6><p>1.使用模型驱动方式，可以直接把表单数据封装到实体类对象里面</p>
 <p>2.实现步骤</p>
 <p>（1）action实现接口 ModelDriven</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataDemo2Action</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> <span class="keyword">implements</span> <span class="title">ModelDriven</span>&lt;<span class="title">User</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -385,7 +383,89 @@
 <p>3.使用模型驱动和属性封装注意问题：</p>
 <p>（1）在一个action中，获取表单数据可以属性封装，使用模型驱动封装，不能同时使用属性封装和模型驱动封装获取同一个表单数据</p>
 <p>如果同时使用之后，执行模型驱动</p>
+<h6 id="表达式封装"><a href="#表达式封装" class="headerlink" title="表达式封装"></a>表达式封装</h6><p>1.实现过程</p>
+<p>（1）使用表达式封装可以把表单数据封装到实体类对象里面</p>
+<p>第一步：在action里面声明实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> User user;</span><br></pre></td></tr></table></figure>
 
+<p>第二步：生成实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUser</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.user = user;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第三步： 在表单输入项的name属性值里面写表达式形式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"$&#123;pageContext.request.contextPath&#125;/data3.action"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">	username:&lt;input type=<span class="string">"text"</span> name=<span class="string">"user.username"</span>&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	password:&lt;input type=<span class="string">"text"</span> name=<span class="string">"user.password"</span>&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	address:&lt;input type=<span class="string">"text"</span> name=<span class="string">"user.address"</span>&gt;</span><br><span class="line">	&lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>1.使用模型驱动只能把数据封装到一个实体类里面：</p>
+<p>在一个action里面不能使用模型驱动把数据封装到不同的实体类里面</p>
+<p>2.使用表达式封装可以封装到多个实体类中。</p>
+<h6 id="封装数据到集合"><a href="#封装数据到集合" class="headerlink" title="封装数据到集合"></a>封装数据到集合</h6><p>1.封装数据到list里面：</p>
+<p>第一步：在action声明List</p>
+<p>第二步：生成list变量的set和get方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.声明List变量	</span></span><br><span class="line"><span class="keyword">private</span> List&lt;User&gt; list;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">getList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setList</span><span class="params">(List&lt;User&gt; list)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.list = list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第三步：在表单输入项里面写表达式</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--list[<span class="number">0</span>] :表示list集合中的第一个user对象 --&gt;</span><br><span class="line">	username:&lt;input type=<span class="string">"text"</span> name=<span class="string">"list[0].username"</span>&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	password:&lt;input type=<span class="string">"text"</span> name=<span class="string">"list[0].password"</span>&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	address:&lt;input type=<span class="string">"text"</span> name=<span class="string">"list[0].address"</span>&gt;</span><br><span class="line">	&lt;hr&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	username:&lt;input type=<span class="string">"text"</span> name=<span class="string">"list[1].username"</span>&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	password:&lt;input type=<span class="string">"text"</span> name=<span class="string">"list[1].password"</span>&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	address:&lt;input type=<span class="string">"text"</span> name=<span class="string">"list[1].address"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.封装数据到map里面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.声明map集合</span></span><br><span class="line">	<span class="keyword">private</span> Map&lt;String, User&gt; map;</span><br><span class="line">	<span class="comment">//2.生成get和set方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Map&lt;String, User&gt; <span class="title">getMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> map;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMap</span><span class="params">(Map&lt;String, User&gt; map)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.map = map;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--设置Key的值map[<span class="string">'key值] </span></span><br><span class="line"><span class="string">		设置value值</span></span><br><span class="line"><span class="string">	--&gt;</span></span><br><span class="line"><span class="string">username:&lt;input type="text" name="map['</span>one<span class="string">'].username"&gt;</span></span><br><span class="line"><span class="string">&lt;br&gt;</span></span><br><span class="line"><span class="string">password:&lt;input type="text" name="map['</span>one<span class="string">'].password"&gt;</span></span><br><span class="line"><span class="string">&lt;br&gt;</span></span><br><span class="line"><span class="string">address:&lt;input type="text" name="map['</span>one<span class="string">'].address"&gt;</span></span><br><span class="line"><span class="string">&lt;hr&gt;</span></span><br><span class="line"><span class="string">&lt;br&gt;</span></span><br><span class="line"><span class="string">username:&lt;input type="text" name="map['</span>abcd<span class="string">'].username"&gt;</span></span><br><span class="line"><span class="string">&lt;br&gt;</span></span><br><span class="line"><span class="string">password:&lt;input type="text" name="map['</span>abcd<span class="string">'].password"&gt;</span></span><br><span class="line"><span class="string">&lt;br&gt;</span></span><br><span class="line"><span class="string">address:&lt;input type="text" name="map['</span>abcd<span class="string">'].address"&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="OGNL概述"><a href="#OGNL概述" class="headerlink" title="OGNL概述"></a>OGNL概述</h4><p>1.之前web阶段，学习过EJ表达式mEL表达式在jsp中获取域对象里面的值</p>
+<p>2.OGNL是一种表达式，这个表达式功能更加强大，</p>
+<p>（1）在struts2里面操作值栈和数据</p>
+<p>（2）一般把ognl在struts3操作，和struts2标签一起使用操作值栈</p>
+<p>3.OGNL不是struts2的一部分，单独的项目，经常和struts2一起使用</p>
+<p>（1）使用ognl时候首先导入jar包，struts2提供jar包</p>
+<p><code>&lt;%@ taglib uri=&quot;/struts-tags&quot; prefix=&quot;s&quot; %&gt;</code></p>
+<h6 id="什么是值栈"><a href="#什么是值栈" class="headerlink" title="什么是值栈"></a>什么是值栈</h6><p>1.之前在web阶段， 在servlet里面进行操作，把数据放到域对象里面，在页面中使用el表达式获取到，域对象在一定的范围内，存值和取值。</p>
+<p>2.在struts2里面提供本身的一种存储机制，类似于域对象，是值栈，可以存值和取值</p>
+<p>（1）在action里面把数据放到值栈里面，在页面中获取到值栈数据。</p>
+<p>3.servlet 和action的区别</p>
+<p>（1）servlet ：默认在第一次访问的时候创建，创建一次</p>
+<p>（2）action：访问时候创建，每次访问action时候，都会创建action对象</p>
+<p>3.值栈的存储的位置</p>
+<p>（1）每次访问action时候，都会创建action对象</p>
+<p>（2）在每个action对象里都会有一个值栈对象</p>
+<h6 id="获取值栈对象"><a href="#获取值栈对象" class="headerlink" title="获取值栈对象"></a>获取值栈对象</h6><p>1.获取值栈对象又多种方式</p>
+<p>（1）常用的方式：使用ActionContext类里面的方法得到值栈对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.获取ActionContex类的对象</span></span><br><span class="line">		ActionContext context = ActionContext.getContext();</span><br><span class="line">		<span class="comment">//2.调用方法得到值栈对象</span></span><br><span class="line">		ValueStack stack1  = context.getValueStack();</span><br></pre></td></tr></table></figure>
+
+<h6 id="值栈的内部结构"><a href="#值栈的内部结构" class="headerlink" title="值栈的内部结构"></a>值栈的内部结构</h6><p>1.值栈分为两部分</p>
+<p>第一部分：root, 结构是list集合<img src="D:%5Cblog%5CZicaiBlog%5Csource%5Cimages%5Cstack.png" alt=""></p>
+<p>第二部分：context  结构式map 集合</p>
+<table>
+<thead>
+<tr>
+<th>key固定</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td>request对象引用</td>
+</tr>
+<tr>
+<td>session</td>
+<td>HttpSession对象引用</td>
+</tr>
+<tr>
+<td>application</td>
+<td>ServletContext对象引用</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td>传递相关的参数</td>
+</tr>
+<tr>
+<td>attr</td>
+<td>三个域对象，向三个域对象放值，名称都相同setAttribut (“name”, “value”);使用attr操作，获取域对象里面的值，获取范围最小里面的值</td>
+</tr>
+</tbody></table>
+<p>2.struts里面的标签 s:debug, 使用这个标签可以查看值栈的结构和存储值</p>
+<p>（1）访问action，执行action的方法又返回值，配置返回值到jsp页面中，在jsp页面中使用这个标签</p>
+<p>（2）在action没有做任何操作，栈顶元素</p>
+<p>在action对象里面有值栈对象，值栈对象里面有action引用</p>
+<h6 id="向值栈中放数据"><a href="#向值栈中放数据" class="headerlink" title="向值栈中放数据"></a>向值栈中放数据</h6>
   </div>
   <!--文末结束语-->
   
@@ -414,7 +494,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/04/19/struts2/" id="toc-header" class="mdui-ripple">文章目录</a>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sturts2"><span class="toc-number">1.</span> <span class="toc-text">sturts2</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Action的编写方式："><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">Action的编写方式：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#访问Action的方法"><span class="toc-number">1.0.0.0.0.2.</span> <span class="toc-text">访问Action的方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Result标签的type属性"><span class="toc-number">1.0.0.0.0.3.</span> <span class="toc-text">Result标签的type属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Action获取表单提交数据"><span class="toc-number">1.0.0.0.0.4.</span> <span class="toc-text">Action获取表单提交数据</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Struts2封装获取表单数据的方式"><span class="toc-number">1.1.</span> <span class="toc-text">Struts2封装获取表单数据的方式</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sturts2"><span class="toc-number">1.</span> <span class="toc-text">sturts2</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Action的编写方式："><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">Action的编写方式：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#访问Action的方法"><span class="toc-number">1.0.0.0.0.2.</span> <span class="toc-text">访问Action的方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Result标签的type属性"><span class="toc-number">1.0.0.0.0.3.</span> <span class="toc-text">Result标签的type属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Action获取表单提交数据"><span class="toc-number">1.0.0.0.0.4.</span> <span class="toc-text">Action获取表单提交数据</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Struts2封装获取表单数据的方式"><span class="toc-number">1.1.</span> <span class="toc-text">Struts2封装获取表单数据的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#属性封装"><span class="toc-number">1.1.0.0.0.1.</span> <span class="toc-text">属性封装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#模型驱动方式"><span class="toc-number">1.1.0.0.0.2.</span> <span class="toc-text">模型驱动方式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#表达式封装"><span class="toc-number">1.1.0.0.0.3.</span> <span class="toc-text">表达式封装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#封装数据到集合"><span class="toc-number">1.1.0.0.0.4.</span> <span class="toc-text">封装数据到集合</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OGNL概述"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">OGNL概述</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#什么是值栈"><span class="toc-number">1.1.0.1.0.1.</span> <span class="toc-text">什么是值栈</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#获取值栈对象"><span class="toc-number">1.1.0.1.0.2.</span> <span class="toc-text">获取值栈对象</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#值栈的内部结构"><span class="toc-number">1.1.0.1.0.3.</span> <span class="toc-text">值栈的内部结构</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#向值栈中放数据"><span class="toc-number">1.1.0.1.0.4.</span> <span class="toc-text">向值栈中放数据</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
       </li>
     </ul>
   </div>
